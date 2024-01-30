@@ -1,0 +1,5 @@
+outs:
+- md5: caf82e70ad69bc5b915e66ba176d0b4a
+  size: 77618434
+  hash: md5
+  path: book_ratings_RDFR_100_df3.pt
