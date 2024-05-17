@@ -1,4 +1,4 @@
-# ﻿DSTI ML Project A22 Cohort (Group 16):
+# ﻿Book Rating ML Project:
 The aim of this project is to train and evaluate different models that predict a book’s rating from a GoodReads dataset.
 
 ## 0) Environment and Kernel set up
