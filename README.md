@@ -8,4 +8,4 @@ This project demonstrates the implementation of various machine learning techniq
 ## Book Rating ML Project 
 The aim of this project is to train and evaluate different models that predict a book’s rating from a GoodReads dataset.
 ## End to end Machine Learning Project : House price prediction
-The objective of this project is to predict the house price in California in 1990.
+The objective of this project is to predict house prices in California using data from 1990.
