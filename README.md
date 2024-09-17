@@ -7,5 +7,5 @@ This project aims to detect the language of a given text using machine learning 
 This project demonstrates the implementation of various machine learning techniques including linear regression, polynomial regression, k-means clustering, and principal component analysis (PCA) using Python and scikit-learn.
 ## Book Rating ML Project 
 The aim of this project is to train and evaluate different models that predict a book’s rating from a GoodReads dataset.
-## End to end Machine Learning Project : House price prediction
+## MachineLearningHousingCorp
 The objective of this project is to predict house prices in California using data from 1990.
