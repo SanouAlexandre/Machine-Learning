@@ -1,4 +1,4 @@
-# End to end Machine Learning project
+# MachineLearningHousingCorp
 The objective : 
 To predict house prices in California using data from 1990. We'll employ an end-to-end process 
 to build a robust machine learning model that can predict housing prices based on various features. 
