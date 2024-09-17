@@ -3,10 +3,11 @@
 The objective of this project is to predict the house price in California in 1990. 
 
 ## Project Structure
-Data Loading
-Data Cleaning
-Model Training
-Model saving
+- Data Loading
+- Data Visualization
+- Data Cleaning
+- Model Training and Evaluation
+- Model saving
 
 
 ## Requirements
