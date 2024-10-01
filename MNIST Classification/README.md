@@ -29,6 +29,29 @@ Multioutput classification is a more complex problem where each input may have m
 that can be either binary or multiclass. For instance, we could predict both the digit and a
 corresponding feature (e.g., the stroke width) for each image.
 
+## Performance Measures
+1. Measuring Accuracy Using Cross-Validation
+Accuracy is one of the most straightforward metrics for evaluating classification models,
+representing the proportion of correct predictions out of the total predictions. To avoid
+overfitting and better assess the model's generalization ability, k-fold cross-validation
+is used. This method splits the dataset into k subsets, trains the model on k-1 subsets,
+and tests it on the remaining one.
+2. Confusion Matrix
+The confusion matrix is a table used to describe the performance of a classification model.
+It gives detailed insight into the types of errors your model is making by comparing actual
+vs. predicted labels
+
+3. Precision and Recall
+Precision and Recall are crucial performance metrics, especially when dealing with imbalanced
+datasets where one class may dominate the others.
+
+4. The ROC Curve
+The Receiver Operating Characteristic (ROC) curve is another essential evaluation tool, especially
+when handling binary classification problems. It plots the True Positive Rate (Recall) against the
+False Positive Rate (FPR) at various threshold levels. The area under the ROC curve (AUC) is used
+to summarize the curve into a single number, with 1.0 indicating perfect classification.
+
+
 ## Error Analysis
 Error analysis helps identify the areas where our models perform poorly. Misclassifications are
 analyzed in detail to uncover common failure modes such as confusing similar digits (e.g., "3" and "8"). 
