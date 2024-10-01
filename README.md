@@ -9,3 +9,7 @@ This project demonstrates the implementation of various machine learning techniq
 The aim of this project is to train and evaluate different models that predict a book’s rating from a GoodReads dataset.
 ## MachineLearningHousingCorp
 The objective of this project is to predict house prices in California using data from 1990.
+## MNIST Classification
+This project explores various machine learning classification tasks applied to the MNIST dataset, 
+including binary, multiclass, multilabel, and multioutput classification. We also delve into error 
+analysis to identify common misclassifications and strategies to improve model performance.
