@@ -1,93 +1,53 @@
-# MachineLearningHousingCorp
-The objective : 
-To predict house prices in California using data from 1990. We'll employ an end-to-end process 
-to build a robust machine learning model that can predict housing prices based on various features. 
-This includes data exploration, preprocessing, model building, and evaluation.
+# Spam Classifier Project
+Overview
+This project builds a Spam Classifier using the Apache SpamAssassin Public Corpus.
+The goal is to classify emails as spam or ham (non-spam) based on their content. 
+This involves:
 
-## Project Structure
-- Problem Understanding
-- Data Collection
-- Data Exploration (EDA)
-- Data Preprocessing
-- Modeling
-- Model Evaluation
-- Fine-Tuning
+- Preprocessing email data
+- Feature extraction using word counts and vocabulary transformation
+- Building and training a machine learning model for classification
+- Evaluating the model for performance and reliability
+-The classifier achieves high accuracy using a Logistic Regression model with
+a feature engineering pipeline.
 
+## Dataset
+The dataset is sourced from the Apache SpamAssassin Public Corpus:
 
-# 1. Problem Understanding
-Objective: Predict housing prices based on features such as location, number of rooms, and population 
-in California in 1990.
+- Ham emails: Legitimate, non-spam emails (2,500 samples)
+- Spam emails: Junk emails categorized as spam (500 samples)
+  
+Data Structure
+Each email is stored in plaintext format and includes:
 
-Type of Problem: Regression (predicting continuous values)
-Target Variable: Median house value
-Features: Population, number of rooms, location (latitude, longitude), median income, etc.
+- Headers: Metadata like sender, subject, etc.
+- Body: The actual email content.
 
-# 2. Data Collection
-We'll use the California Housing Dataset , containing 
-data on various districts in California from the 1990 census.
+## Steps in the Project
 
-Key Features in the dataset:
+### Fetching the Data
+Emails are downloaded from the Apache SpamAssassin repository and extracted into 
+a local directory structure:
 
-longitude: Longitude of the district
-latitude: Latitude of the district
-housing_median_age: Median age of the houses
-total_rooms: Total number of rooms per district
-total_bedrooms: Total number of bedrooms per district
-population: Population per district
-households: Number of households per district
-median_income: Median income per household in the district
-median_house_value: Median house price per district (our target variable)
+- easy_ham: Contains non-spam emails.
+- spam: Contains spam emails.
 
-# 3. Data Exploration (EDA)
-Once the dataset is collected, the next step is to explore the data to understand its structure, 
-distribution, and any patterns that might be useful for prediction.
+### Parsing Emails
+The Python email module is used to parse the email content into structured data, 
+separating headers and the body text.
 
-Steps in EDA:
+### Feature Engineering
+Emails are transformed into numerical features through a pipeline:
 
-Check missing values: Use df.isnull().sum()
-Descriptive statistics: Use df.describe() to get a sense of the distributions.
-Histograms and distribution plots: For each feature, check the distribution using seaborn/matplotlib.
-Correlations: Check for correlations using df.corr() to identify relationships between features and the target.
-Visualize geographical data: Use scatterplots for latitude and longitude to visualize the districts and their house prices.
+- Word Count Extraction: Counting word occurrences in emails.
+- Vocabulary Transformation: Limiting the vocabulary size to the most common words.
+- Sparse Matrix Representation: Efficient representation of features using scipy.sparse.
 
-# 4. Data Preprocessing
-Key Preprocessing Steps:
+### Model Training
+The pipeline feeds the transformed features into a Logistic Regression model for classification:
 
-Handle missing values: For features like total_bedrooms, either impute missing values (with the mean/median) or drop them.
-Feature scaling: Scale numerical features using StandardScaler or MinMaxScaler to improve model performance.
-Feature Engineering: Add new features such as rooms_per_household, bedrooms_per_room, and population_per_household for better predictive power.
+- The pipeline automates preprocessing and feature extraction.
+- Cross-validation ensures robustness of the model.
 
-One-hot encoding: Encode categorical features if needed.
-Steps:
-
-Splitting the data: Split the data into training and test sets using train_test_split (typically 80-20 or 70-30 split).
-Pipeline: Build a pipeline that handles all preprocessing steps (imputation, scaling, feature engineering) in a reproducible way.
-
-# 5. Modeling
-Once preprocessing is done, we’ll build various machine learning models to predict the house price.
-
-Models to Try:
-
-Linear Regression: Baseline model for regression problems.
-Decision Trees: A non-linear model that can capture complex relationships.
-Random Forests: An ensemble method that generally performs better than individual decision trees.
-
-# 6. Model Evaluation
-For regression tasks, we will use the following evaluation metrics:
-
-Mean Squared Error (MSE): Average of squared differences between actual and predicted values.
-Root Mean Squared Error (RMSE): Square root of MSE, giving us a sense of the error in the same unit as the target variable.
-
-# 7. Fine-Tuning
-After evaluating the models, fine-tune the best-performing model  using techniques like:
-
-Cross-validation to ensure the model performs well on unseen data.
-Grid Search or Randomized Search to find the best hyperparameters.
-
-
-## Requirements
-Python 3.x
-numpy
-pandas
-matplotlib
-scikit-learn
+### Evaluation
+The model is evaluated on the training set using cross-validation, achieving an average accuracy of 98.58%.
