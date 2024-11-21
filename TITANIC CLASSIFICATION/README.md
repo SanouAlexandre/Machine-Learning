@@ -1,89 +1,62 @@
-# MachineLearningHousingCorp
-The objective : 
-To predict house prices in California using data from 1990. We'll employ an end-to-end process 
-to build a robust machine learning model that can predict housing prices based on various features. 
-This includes data exploration, preprocessing, model building, and evaluation.
+# Titanic Classification Project
+Overview
+This project tackles the classic Titanic dataset, aiming to predict whether a passenger survived the Titanic disaster. 
+Using machine learning techniques, we analyze and model the data to build a classification system that predicts 
+survival based on attributes such as age, sex, class, and embarkation location.
 
-## Project Structure
-- Problem Understanding
-- Data Collection
-- Data Exploration (EDA)
-- Data Preprocessing
-- Modeling
-- Model Evaluation
-- Fine-Tuning
+## Objective
+The goal is to create a predictive model that determines if a passenger survived based on their features. This involves:
 
+- Data preprocessing (handling missing values, feature engineering, etc.)
+- Exploratory Data Analysis (EDA)
+- Model training and evaluation
+- Optimization and testing on unseen data
+- 
+## Dataset
+The dataset includes information about Titanic passengers:
 
-# 1. Problem Understanding
-Objective: Predict housing prices based on features such as location, number of rooms, and population 
-in California in 1990.
+- Train Dataset: Used for training the model.
+- Test Dataset: Used to evaluate model performance.
 
-Type of Problem: Regression (predicting continuous values)
-Target Variable: Median house value
-Features: Population, number of rooms, location (latitude, longitude), median income, etc.
+Each dataset includes attributes like:
 
-# 2. Data Collection
-We'll use the California Housing Dataset , containing 
-data on various districts in California from the 1990 census.
+- PassengerId: Unique identifier
+- Survived: Target variable (0 = did not survive, 1 = survived)
+- Pclass: Ticket class (1st, 2nd, 3rd)
+- Name: Passenger name
+- Sex: Gender
+- Age: Age in years
+- SibSp: Number of siblings/spouses aboard
+- Parch: Number of parents/children aboard
+- Ticket: Ticket number
+- Fare: Ticket fare
+- Cabin: Cabin number
+- Embarked: Port of embarkation (C = Cherbourg, Q = Queenstown, S = Southampton)
 
-Key Features in the dataset:
+## Steps in the Project
+### Data Fetching and Loading:
 
-longitude: Longitude of the district
-latitude: Latitude of the district
-housing_median_age: Median age of the houses
-total_rooms: Total number of rooms per district
-total_bedrooms: Total number of bedrooms per district
-population: Population per district
-households: Number of households per district
-median_income: Median income per household in the district
-median_house_value: Median house price per district (our target variable)
+The data is downloaded programmatically from the GitHub repository and loaded into Pandas DataFrames for manipulation.
+Data Preprocessing:
 
-# 3. Data Exploration (EDA)
-Once the dataset is collected, the next step is to explore the data to understand its structure, 
-distribution, and any patterns that might be useful for prediction.
+- Handling missing values (imputing missing Age and Embarked values).
+- Encoding categorical variables (converting Sex to numerical values).
 
-Steps in EDA:
+### Exploratory Data Analysis (EDA):
 
-Check missing values: Use df.isnull().sum()
-Descriptive statistics: Use df.describe() to get a sense of the distributions.
-Histograms and distribution plots: For each feature, check the distribution using seaborn/matplotlib.
-Correlations: Check for correlations using df.corr() to identify relationships between features and the target.
-Visualize geographical data: Use scatterplots for latitude and longitude to visualize the districts and their house prices.
+- Understanding data distributions.
+- Investigating correlations and patterns.
+- Visualizing survival rates across different groups (e.g., Pclass, Sex, Age).
+  
+### Model Building:
 
-# 4. Data Preprocessing
-Key Preprocessing Steps:
+- Building a machine learning pipeline with preprocessing and training steps.
+- Trying out multiple algorithms (Random Forest, SVM.).
 
-Handle missing values: For features like total_bedrooms, either impute missing values (with the mean/median) or drop them.
-Feature scaling: Scale numerical features using StandardScaler or MinMaxScaler to improve model performance.
-Feature Engineering: Add new features such as rooms_per_household, bedrooms_per_room, and population_per_household for better predictive power.
+### Evaluation:
 
-One-hot encoding: Encode categorical features if needed.
-Steps:
-
-Splitting the data: Split the data into training and test sets using train_test_split (typically 80-20 or 70-30 split).
-Pipeline: Build a pipeline that handles all preprocessing steps (imputation, scaling, feature engineering) in a reproducible way.
-
-# 5. Modeling
-Once preprocessing is done, we’ll build various machine learning models to predict the house price.
-
-Models to Try:
-
-Linear Regression: Baseline model for regression problems.
-Decision Trees: A non-linear model that can capture complex relationships.
-Random Forests: An ensemble method that generally performs better than individual decision trees.
-
-# 6. Model Evaluation
-For regression tasks, we will use the following evaluation metrics:
-
-Mean Squared Error (MSE): Average of squared differences between actual and predicted values.
-Root Mean Squared Error (RMSE): Square root of MSE, giving us a sense of the error in the same unit as the target variable.
-
-# 7. Fine-Tuning
-After evaluating the models, fine-tune the best-performing model  using techniques like:
-
-Cross-validation to ensure the model performs well on unseen data.
-Grid Search or Randomized Search to find the best hyperparameters.
-
+- Measuring performance
+- Cross-validation to ensure robustness.
 
 ## Requirements
 Python 3.x
