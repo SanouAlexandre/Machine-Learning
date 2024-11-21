@@ -1,5 +1,5 @@
 # Titanic Classification Project
-Overview
+## Overview
 This project tackles the classic Titanic dataset, aiming to predict whether a passenger survived the Titanic disaster. 
 Using machine learning techniques, we analyze and model the data to build a classification system that predicts 
 survival based on attributes such as age, sex, class, and embarkation location.
