@@ -51,3 +51,12 @@ The pipeline feeds the transformed features into a Logistic Regression model for
 
 ### Evaluation
 The model is evaluated on the training set using cross-validation, achieving an average accuracy of 98.58%.
+
+## Requirements
+Python 3.x
+numpy
+pandas
+matplotlib
+scikit-learn
+nltk
+urlextract
