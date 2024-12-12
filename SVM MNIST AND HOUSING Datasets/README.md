@@ -1,4 +1,4 @@
-# SVM Classifier on MNIST Dataset
+# 1. SVM Classifier on MNIST Dataset
 ## Overview
 This project demonstrates the implementation of a Support Vector Machine (SVM) classifier 
 on the MNIST dataset, a popular dataset of handwritten digits used for image classification 
@@ -38,6 +38,42 @@ Results:
 Training set accuracy: 99.7%
 Test set accuracy: 97.3%
 
+
+# 2. SVM Regressor on California Housing Dataset
+
+## Overview
+This project demonstrates the implementation of a Support Vector Machine (SVM) regressor on 
+the California Housing dataset. The goal is to predict median house values in California based 
+on various features using Scikit-Learn. The project includes preprocessing, training with both 
+linear and non-linear SVM regressors, hyperparameter tuning, and evaluation.
+
+## Dataset Preparation
+The California Housing dataset is loaded using fetch_california_housing().
+The dataset is split into a training set (80% of the data) and a test set (20% of the data).
+
+## Data Scaling
+Feature scaling is performed using StandardScaler to improve the performance of SVM models.
+
+## Linear SVM Regressor
+A linear SVM regressor (LinearSVR) is trained on the scaled training set.
+Results:
+Training set Mean Squared Error (MSE): 0.964
+Training set Root Mean Squared Error (RMSE): 0.982
+
+## Non-Linear SVM Regressor with RBF Kernel
+A non-linear SVM regressor (SVR with RBF kernel) is trained using hyperparameter tuning.
+Hyperparameter tuning is performed using randomized search with cross-validation.
+Search space:
+gamma: Reciprocal distribution between 0.001 and 0.1
+C: Uniform distribution between 1 and 10
+Results:
+Best parameters: C=4.75, gamma=0.0797
+Training set RMSE: 0.573
+
+## Evaluation on Test Set
+The best model is evaluated on the test set.
+Results:
+Test set RMSE: 0.593
 
 
 # Requirements
