@@ -1,62 +1,47 @@
-# Spam Classifier Project
+# SVM Classifier on MNIST Dataset
 ## Overview
-This project builds a Spam Classifier using the Apache SpamAssassin Public Corpus.
-The goal is to classify emails as spam or ham (non-spam) based on their content. 
-This involves:
+This project demonstrates the implementation of a Support Vector Machine (SVM) classifier 
+on the MNIST dataset, a popular dataset of handwritten digits used for image classification 
+and machine learning benchmarking. The classifier is trained using Scikit-Learn and includes
+preprocessing, training with different SVM configurations, hyperparameter tuning, and evaluation.
 
-- Preprocessing email data
-- Feature extraction using word counts and vocabulary transformation
-- Building and training a machine learning model for classification
-- Evaluating the model for performance and reliability
--The classifier achieves high accuracy using a Logistic Regression model with
-a feature engineering pipeline.
 
-## Dataset
-The dataset is sourced from the Apache SpamAssassin Public Corpus:
+## Dataset Preparation
+The MNIST dataset is loaded using fetch_openml.
+The dataset is split into a training set (60,000 samples) and a test set (10,000 samples).
+The data is already shuffled, so additional shuffling is not required.
 
-- Ham emails: Legitimate, non-spam emails (2,500 samples)
-- Spam emails: Junk emails categorized as spam (500 samples)
-  
-Data Structure
-Each email is stored in plaintext format and includes:
+## Linear SVM Classifier
+A linear SVM classifier (LinearSVC) is trained on the raw dataset.
+Results:
+Accuracy without scaling: 83.5%
+After scaling the data with StandardScaler: 92.1%
 
-- Headers: Metadata like sender, subject, etc.
-- Body: The actual email content.
+## Non-Linear SVM with RBF Kernel
+A non-linear SVM classifier (SVC with RBF kernel) is trained on a subset of the scaled dataset 
+(10,000 samples).
+Results:
+Accuracy on the training set: 94.5%
 
-## Steps in the Project
+## Hyperparameter Tuning
+A randomized search with cross-validation is performed to tune hyperparameters C and gamma.
+Search space:
+gamma: Reciprocal distribution between 0.001 and 0.1
+C: Uniform distribution between 1 and 10
+Results:
+Best parameters: C=7.12, gamma=0.00103
+Cross-validated score: 86.4% (on 1,000 samples)
 
-### Fetching the Data
-Emails are downloaded from the Apache SpamAssassin repository and extracted into 
-a local directory structure:
+## Final Model Training
+The best estimator is retrained on the full scaled training set.
+Results:
+Training set accuracy: 99.7%
+Test set accuracy: 97.3%
 
-- easy_ham: Contains non-spam emails.
-- spam: Contains spam emails.
 
-### Parsing Emails
-The Python email module is used to parse the email content into structured data, 
-separating headers and the body text.
 
-### Feature Engineering
-Emails are transformed into numerical features through a pipeline:
-
-- Word Count Extraction: Counting word occurrences in emails.
-- Vocabulary Transformation: Limiting the vocabulary size to the most common words.
-- Sparse Matrix Representation: Efficient representation of features using scipy.sparse.
-
-### Model Training
-The pipeline feeds the transformed features into a Logistic Regression model for classification:
-
-- The pipeline automates preprocessing and feature extraction.
-- Cross-validation ensures robustness of the model.
-
-### Evaluation
-The model is evaluated on the training set using cross-validation, achieving an average accuracy of 98.58%.
-
-## Requirements
-Python 3.x
-numpy
-pandas
-matplotlib
-scikit-learn
-nltk
-urlextract
+# Requirements
+Python 3.7+
+Scikit-Learn
+NumPy
+SciPy
