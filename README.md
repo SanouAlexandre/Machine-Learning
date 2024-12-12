@@ -35,3 +35,6 @@ and embarkation location.
 This project builds a Spam Classifier using the Apache SpamAssassin Public Corpus. The goal is 
 to classify emails as spam or ham (non-spam) based on their content.
 
+## SVM MNIST and HOUSING Datasets
+SVM Applications: Classification on MNIST and Regression on California Housing Dataset
+
